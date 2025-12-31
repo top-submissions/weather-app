@@ -1,7 +1,7 @@
 {
-  "name": "template-webpack",
+  "name": "weather-app",
   "version": "1.0.0",
-  "description": "A production-ready Webpack 5 template with ESLint and Prettier",
+  "description": "A weather forecast application built with vanilla JavaScript that displays real-time weather data with Fahrenheit/Celsius conversion and dynamic theming",
   "main": "src/index.js",
   "directories": {
     "doc": "docs"
@@ -19,15 +19,36 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/top-submissions/template-webpack.git"
+    "url": "git+https://github.com/top-submissions/weather-app.git"
   },
-  "keywords": ["webpack", "template", "boilerplate", "webpack5", "eslint", "prettier"],
+  "keywords": [
+    "weather-app",
+    "javascript",
+    "webpack",
+    "the-odin-project",
+    "api",
+    "visual-crossing",
+    "async-await",
+    "promises",
+    "fetch-api",
+    "dom-manipulation",
+    "es6-modules",
+    "responsive-design",
+    "web-development",
+    "frontend",
+    "css3",
+    "html5",
+    "weather-forecast",
+    "temperature-converter",
+    "loading-indicator",
+    "error-handling"
+  ],
   "author": "top-submissions",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/top-submissions/template-webpack/issues"
+    "url": "https://github.com/top-submissions/weather-app/issues"
   },
-  "homepage": "https://github.com/top-submissions/template-webpack#readme",
+  "homepage": "https://github.com/top-submissions/weather-app#readme",
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "css-loader": "^7.1.2",
@@ -35,7 +56,7 @@
     "globals": "^16.5.0",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.5",
-    "prettier": "3.7.4",
+    "prettier": "^3.7.4",
     "style-loader": "^4.0.0",
     "webpack": "^5.104.1",
     "webpack-cli": "^6.0.1",
