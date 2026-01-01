@@ -28,3 +28,29 @@ export function celsiusToFahrenheit(celsius) {
 export function roundTemp(temp, decimals = 0) {
   return Math.round(temp * Math.pow(10, decimals)) / Math.pow(10, decimals);
 }
+
+/**
+ * Format date using date-fns
+ * @param {string} dateString - Date string to format (YYYY-MM-DD format)
+ * @param {string} formatString - Format pattern (default: 'EEEE, MMMM d, yyyy')
+ * @returns {string} Formatted date string
+ */
+export function formatDate(dateString, formatString = 'EEEE, MMMM d, yyyy') {
+  try {
+    // Parse ISO date string (YYYY-MM-DD format)
+    const date = parseISO(dateString);
+    return format(date, formatString);
+  } catch (error) {
+    console.error('Error formatting date:', error);
+    return dateString;
+  }
+}
+
+/**
+ * Get day of week abbreviation
+ * @param {string} dateString - Date string (YYYY-MM-DD format)
+ * @returns {string} Day abbreviation (e.g., 'Mon', 'Tue')
+ */
+export function getDayAbbreviation(dateString) {
+  return formatDate(dateString, 'EEE');
+}
