@@ -32,3 +32,44 @@ async function handleWeatherSearch(location) {
     showError(error.message);
   }
 }
+
+/**
+ * Initialize the application
+ */
+function initializeApp() {
+  console.log('Weather App initialized');
+
+  // Initialize UI event listeners
+  initializeUI();
+
+  // Search form submission
+  const searchForm = document.getElementById('searchForm');
+  const locationInput = document.getElementById('locationInput');
+
+  searchForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const location = locationInput.value.trim();
+
+    if (location) {
+      handleWeatherSearch(location);
+    }
+  });
+
+  // Retry button click
+  const retryBtn = document.getElementById('retryBtn');
+  retryBtn.addEventListener('click', () => {
+    const location = locationInput.value.trim() || DEFAULT_LOCATION;
+    handleWeatherSearch(location);
+  });
+
+  // Load default location on page load
+  handleWeatherSearch(DEFAULT_LOCATION);
+}
+
+// Start the app when DOM is loaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+  initializeApp();
+}
