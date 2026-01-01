@@ -45,3 +45,59 @@ export async function fetchWeatherData(location) {
     throw error;
   }
 }
+
+/**
+ * Process raw API data into a clean object with only needed information
+ * @param {Object} rawData - Raw data from Visual Crossing API
+ * @returns {Object} Processed weather data
+ */
+export function processWeatherData(rawData) {
+  // Extract current conditions
+  const current = rawData.currentConditions;
+
+  // Get today's date from the first day in the forecast
+  const todayDate = rawData.days[0].datetime;
+
+  // Extract location info
+  const location = {
+    name: rawData.resolvedAddress,
+    timezone: rawData.timezone,
+  };
+
+  // Process current weather
+  const currentWeather = {
+    datetime: todayDate,
+    temp: current.temp,
+    feelsLike: current.feelslike,
+    humidity: current.humidity,
+    windSpeed: current.windspeed,
+    pressure: current.pressure,
+    uvIndex: current.uvindex,
+    conditions: current.conditions,
+    icon: current.icon,
+    description: rawData.description,
+  };
+
+  // Process 7-day forecast (including today)
+  const forecast = rawData.days.slice(0, 7).map(day => ({
+    datetime: day.datetime,
+    tempMax: day.tempmax,
+    tempMin: day.tempmin,
+    conditions: day.conditions,
+    icon: day.icon,
+    precipProb: day.precipprob,
+    humidity: day.humidity,
+  }));
+
+  console.log('Processed weather data:', {
+    location,
+    currentWeather,
+    forecast,
+  });
+
+  return {
+    location,
+    currentWeather,
+    forecast,
+  };
+}
