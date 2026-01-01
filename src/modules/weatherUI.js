@@ -87,3 +87,64 @@ function getTempUnit() {
 export function getCurrentUnit() {
   return currentUnit;
 }
+
+/**
+ * Update 7-day forecast display
+ * @param {Array} forecast - Array of forecast day objects
+ */
+function updateForecast(forecast) {
+  const forecastGrid = document.getElementById('forecastGrid');
+  forecastGrid.innerHTML = '';
+
+  forecast.forEach((day, index) => {
+    const dayName = index === 0 ? 'Today' : getDayAbbreviation(day.datetime);
+    const iconClass = mapWeatherIcon(day.icon);
+    const highTemp = convertTemp(day.tempMax);
+    const lowTemp = convertTemp(day.tempMin);
+
+    const forecastCard = document.createElement('div');
+    forecastCard.className = 'forecast-card';
+    forecastCard.innerHTML = `
+      <div class="forecast-day">${dayName}</div>
+      <i class="wi forecast-icon ${iconClass}"></i>
+      <div class="forecast-temps">
+        <span class="forecast-high">${highTemp}°</span>
+        <span class="forecast-low">${lowTemp}°</span>
+      </div>
+    `;
+
+    forecastGrid.appendChild(forecastCard);
+  });
+}
+
+/**
+ * Update page theme based on weather conditions
+ * @param {string} icon - Weather icon code
+ * @param {string} conditions - Weather conditions description
+ */
+function updateTheme(icon, conditions) {
+  const theme = getWeatherTheme(icon, conditions);
+  const body = document.body;
+
+  // Remove all theme classes
+  body.classList.remove('clear', 'cloudy', 'rain', 'snow', 'night');
+
+  // Add new theme class
+  body.classList.add(theme);
+
+  console.log('Theme updated to:', theme);
+}
+
+/**
+ * Update toggle button states
+ */
+function updateToggleButtons() {
+  const toggleButtons = document.querySelectorAll('.toggle-btn');
+  toggleButtons.forEach(btn => {
+    if (btn.dataset.unit === currentUnit) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+}
