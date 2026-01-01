@@ -26,6 +26,32 @@
           Weather App
         </h1>
       </header>
+
+      <!-- Search Section -->
+      <section class="search-section">
+        <form class="search-form" id="searchForm">
+          <div class="search-input-group">
+            <input
+              type="text"
+              id="locationInput"
+              class="search-input"
+              placeholder="Enter city name..."
+              required
+              autocomplete="off"
+            />
+            <button type="submit" class="search-btn" aria-label="Search">
+              <i class="wi wi-day-cloudy"></i>
+              Search
+            </button>
+          </div>
+        </form>
+
+        <!-- Temperature Toggle -->
+        <div class="temp-toggle">
+          <button class="toggle-btn active" data-unit="fahrenheit">°F</button>
+          <button class="toggle-btn" data-unit="celsius">°C</button>
+        </div>
+      </section>
     </div>
   </body>
 </html>
