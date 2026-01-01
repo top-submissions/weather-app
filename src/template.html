@@ -65,6 +65,78 @@
         <p class="error-text"></p>
         <button class="retry-btn" id="retryBtn">Try Again</button>
       </div>
+
+      <!-- Weather Display -->
+      <main class="weather-display" id="weatherDisplay">
+        <!-- Current Weather -->
+        <section class="current-weather">
+          <div class="location-info">
+            <h2 class="location-name" id="locationName">New York</h2>
+            <p class="current-date" id="currentDate">Monday, January 1, 2025</p>
+          </div>
+
+          <div class="current-conditions">
+            <div class="temp-display">
+              <i class="wi weather-icon" id="currentIcon"></i>
+              <div class="temp-info">
+                <span class="current-temp" id="currentTemp">72</span>
+                <span class="temp-unit">°F</span>
+              </div>
+            </div>
+
+            <p class="weather-description" id="weatherDescription">
+              Partly Cloudy
+            </p>
+            <p class="feels-like">
+              Feels like <span id="feelsLike">68</span
+              ><span class="temp-unit">°F</span>
+            </p>
+          </div>
+
+          <!-- Weather Details Grid -->
+          <div class="weather-details">
+            <div class="detail-item">
+              <i class="wi wi-humidity"></i>
+              <div class="detail-info">
+                <p class="detail-label">Humidity</p>
+                <p class="detail-value" id="humidity">65%</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <i class="wi wi-strong-wind"></i>
+              <div class="detail-info">
+                <p class="detail-label">Wind Speed</p>
+                <p class="detail-value" id="windSpeed">12 mph</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <i class="wi wi-barometer"></i>
+              <div class="detail-info">
+                <p class="detail-label">Pressure</p>
+                <p class="detail-value" id="pressure">1013 mb</p>
+              </div>
+            </div>
+
+            <div class="detail-item">
+              <i class="wi wi-day-sunny"></i>
+              <div class="detail-info">
+                <p class="detail-label">UV Index</p>
+                <p class="detail-value" id="uvIndex">5</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Forecast Section -->
+        <section class="forecast-section">
+          <h3 class="forecast-title">7-Day Forecast</h3>
+          <div class="forecast-grid" id="forecastGrid">
+            <!-- Forecast cards will be dynamically generated -->
+          </div>
+        </section>
+      </main>
     </div>
   </body>
 </html>
