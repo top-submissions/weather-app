@@ -1,18 +1,18 @@
-# Project Name
+# Weather App ☀️🌧️
 
-[![GitHub License](https://img.shields.io/github/license/username/repo-name)](https://github.com/username/repo-name/blob/main/LICENSE)
-[![GitHub Issues](https://img.shields.io/github/issues/username/repo-name)](https://github.com/username/repo-name/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/username/repo-name)](https://github.com/username/repo-name/pulls)
-[![GitHub Last Commit](https://img.shields.io/github/last-commit/username/repo-name)](https://github.com/username/repo-name/commits)
-[![GitHub Stars](https://img.shields.io/github/stars/username/repo-name)](https://github.com/username/repo-name/stargazers)
+[![GitHub License](https://img.shields.io/github/license/top-submissions/weather-app)](https://github.com/top-submissions/weather-app/blob/main/LICENSE)
+[![GitHub Issues](https://img.shields.io/github/issues/top-submissions/weather-app)](https://github.com/top-submissions/weather-app/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/top-submissions/weather-app)](https://github.com/top-submissions/weather-app/pulls)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/top-submissions/weather-app)](https://github.com/top-submissions/weather-app/commits)
+[![GitHub Stars](https://img.shields.io/github/stars/top-submissions/weather-app)](https://github.com/top-submissions/weather-app/stargazers)
 [![Node Version](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen)](https://nodejs.org/)
 [![Webpack Version](https://img.shields.io/badge/webpack-5-blue)](https://webpack.js.org/)
 
-> A brief, compelling description of what your project does and why it exists. Keep it to 1-2 sentences.
+> A dynamic weather forecast application that displays real-time weather data with temperature conversion and beautiful sky-inspired theming.
 
 ## 📖 Table of Contents
 
-- [Project Name](#project-name)
+- [Weather App ☀️🌧️](#weather-app-️️)
   - [📖 Table of Contents](#-table-of-contents)
   - [🎯 About](#-about)
   - [✨ Features](#-features)
@@ -20,45 +20,39 @@
   - [🔧 Installation](#-installation)
     - [1. Clone the repository](#1-clone-the-repository)
     - [2. Install dependencies](#2-install-dependencies)
-    - [3. (Optional) Set up environment variables](#3-optional-set-up-environment-variables)
+    - [3. Get your Visual Crossing API Key](#3-get-your-visual-crossing-api-key)
   - [💻 Usage](#-usage)
     - [Development Mode](#development-mode)
     - [Production Build](#production-build)
     - [Additional Commands](#additional-commands)
   - [⚙️ Configuration](#️-configuration)
-    - [Webpack](#webpack)
-    - [ESLint](#eslint)
-    - [Prettier](#prettier)
   - [📜 Scripts](#-scripts)
   - [🚀 Deployment](#-deployment)
     - [GitHub Pages](#github-pages)
-    - [Netlify](#netlify)
-    - [Vercel](#vercel)
-    - [Other Platforms](#other-platforms)
   - [🛠️ Built With](#️-built-with)
-  - [🤝 Contributing](#-contributing)
+  - [🎓 Learning Outcomes](#-learning-outcomes)
   - [📄 License](#-license)
   - [🙏 Acknowledgments](#-acknowledgments)
-  - [📞 Contact](#-contact)
 
 ## 🎯 About
 
-Provide a more detailed explanation of your project. Answer these questions:
+This Weather App is a project from [The Odin Project](https://www.theodinproject.com/)'s JavaScript course. It demonstrates proficiency in working with external APIs, handling asynchronous JavaScript operations, and creating dynamic user interfaces.
 
-- What problem does it solve?
-- What makes it unique or different?
-- Who is it for?
-- What are the main use cases?
+The application fetches real-time weather data from the Visual Crossing Weather API and presents it in an intuitive, visually appealing format. Users can search for any location worldwide and view current conditions along with a forecast. The interface dynamically adapts its appearance based on weather conditions, creating an immersive experience.
 
-This can be 2-4 paragraphs explaining the context and motivation behind the project.
+Built with vanilla JavaScript, this project showcases modern web development practices including ES6 modules, async/await patterns, and responsive design—all without relying on frameworks or libraries beyond Webpack for bundling.
 
 ## ✨ Features
 
-- **Feature 1** - Brief description of what this feature does
-- **Feature 2** - Brief description of what this feature does
-- **Feature 3** - Brief description of what this feature does
-- **Feature 4** - Brief description of what this feature does
-- **Feature 5** - Brief description of what this feature does
+- **🔍 Location Search** - Search weather for any city or location worldwide
+- **🌡️ Temperature Toggle** - Seamlessly switch between Fahrenheit and Celsius
+- **🎨 Dynamic Theming** - Background and colors change based on weather conditions (sunny, cloudy, rainy, night)
+- **📊 Detailed Weather Data** - Current temperature, feels like, humidity, wind speed, UV index, and more
+- **📅 7-Day Forecast** - View weather predictions for the week ahead
+- **⏰ Loading Indicator** - Smooth spinner animation while fetching data
+- **❌ Error Handling** - User-friendly error messages for invalid locations or API issues
+- **📱 Responsive Design** - Works perfectly on desktop, tablet, and mobile devices
+- **☁️ Weather Icons** - Beautiful weather condition icons from Weather Icons library
 
 ## 📋 Prerequisites
 
@@ -68,14 +62,15 @@ Before you begin, ensure you have met the following requirements:
 - **npm** `>= 6.0.0` or **yarn** `>= 1.22.0`
 - **Git** - For version control
 - A modern web browser (Chrome, Firefox, Safari, or Edge)
+- **Visual Crossing API Key** - Free tier available at [Visual Crossing Weather](https://www.visualcrossing.com/weather-api)
 
 ## 🔧 Installation
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/username/repo-name.git
-cd repo-name
+git clone https://github.com/top-submissions/weather-app.git
+cd weather-app
 ```
 
 ### 2. Install dependencies
@@ -84,25 +79,15 @@ cd repo-name
 npm install
 ```
 
-or
+### 3. Get your Visual Crossing API Key
 
-```bash
-yarn install
-```
+1. Visit [Visual Crossing Weather API](https://www.visualcrossing.com/weather-api)
+2. Sign up for a free account
+3. Copy your API key from the dashboard
+4. Open `src/modules/weatherAPI.js` and replace `'YOUR_API_KEY'` with your actual API key
 
-### 3. (Optional) Set up environment variables
-
-Create a `.env` file in the root directory:
-
-```bash
-cp .env.example .env
-```
-
-Edit `.env` with your configuration:
-
-```
-API_KEY=your_api_key_here
-API_URL=https://api.example.com
+```javascript
+const API_KEY = 'your_actual_api_key_here';
 ```
 
 ## 💻 Usage
@@ -148,39 +133,11 @@ npm run format:check
 
 ## ⚙️ Configuration
 
-### Webpack
-
 The project uses three webpack configurations:
 
 - **`webpack.common.js`** - Shared configuration for all environments
 - **`webpack.dev.js`** - Development-specific settings (source maps, dev server)
 - **`webpack.prod.js`** - Production optimizations (minification, code splitting)
-
-### ESLint
-
-ESLint is configured in `.eslintrc.json`. Customize rules to match your coding style:
-
-```json
-{
-  "rules": {
-    "no-console": "warn",
-    "no-unused-vars": "error"
-  }
-}
-```
-
-### Prettier
-
-Code formatting is configured in `.prettierrc`:
-
-```json
-{
-  "semi": true,
-  "singleQuote": true,
-  "tabWidth": 2,
-  "trailingComma": "es5"
-}
-```
 
 ## 📜 Scripts
 
@@ -193,6 +150,7 @@ Code formatting is configured in `.prettierrc`:
 | `npm run lint:fix` | Automatically fix linting issues |
 | `npm run format` | Format code with Prettier |
 | `npm run format:check` | Check if code is formatted correctly |
+| `npm run deploy` | Deploy to GitHub Pages |
 
 ## 🚀 Deployment
 
@@ -210,64 +168,28 @@ Code formatting is configured in `.prettierrc`:
    npm run deploy
    ```
 
-Or follow the manual steps in [docs/SETUP.md](./docs/SETUP.md).
-
-### Netlify
-
-1. Connect your repository to Netlify
-2. Set build command: `npm run build`
-3. Set publish directory: `dist`
-
-### Vercel
-
-1. Import your repository to Vercel
-2. Configure build settings:
-   - Build Command: `npm run build`
-   - Output Directory: `dist`
-
-### Other Platforms
-
-The `dist/` folder contains all necessary files for deployment to any static hosting service.
+Your app will be live at: `https://top-submissions.github.io/weather-app`
 
 ## 🛠️ Built With
 
-- [Webpack](https://webpack.js.org/) - Module bundler
-- [Babel](https://babeljs.io/) - JavaScript compiler
+- [JavaScript ES6+](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Modern JavaScript
+- [Webpack 5](https://webpack.js.org/) - Module bundler
+- [Visual Crossing Weather API](https://www.visualcrossing.com/weather-api) - Weather data provider
+- [Weather Icons](https://erikflowers.github.io/weather-icons/) - Weather condition icons
+- [date-fns](https://date-fns.org/) - Date formatting utility
 - [ESLint](https://eslint.org/) - JavaScript linter
 - [Prettier](https://prettier.io/) - Code formatter
-- [date-fns](https://date-fns.org/) - Date utility library (example dependency)
 
-## 🤝 Contributing
+## 🎓 Learning Outcomes
 
-Contributions are welcome! Here's how you can help:
+What I learned from this project:
 
-1. **Fork** the repository
-2. **Create** a feature branch:
-
-   ```bash
-   git checkout -b feature/AmazingFeature
-   ```
-
-3. **Commit** your changes:
-
-   ```bash
-   git commit -m 'Add some AmazingFeature'
-   ```
-
-4. **Push** to the branch:
-
-   ```bash
-   git push origin feature/AmazingFeature
-   ```
-
-5. **Open** a Pull Request
-
-Please make sure to:
-
-- Follow the existing code style
-- Run `npm run lint` and `npm run format` before committing
-- Write clear commit messages
-- Update documentation as needed
+- Promise based functions (i.e. `fetch`, etc.) return a promise, thus you must use the `await` keyword when storing their return value to a variable or expression
+- `fetch` function uses `mode: 'cors'` in its options parameter as default (for now I can only interpret it as allowing a client, which is from a different origin, to access a server's information)
+- Using `async` and `await` keywords to wait for data retrieval from web browser and data transfer to task queue
+- `await` keyword works similarly to `.then()` and `.catch()` functions, where it unboxes the promise turning it into its raw value
+- Parsing JSON into JS objects via `.json()`
+- Extracting icons from raw fetch query object (i.e. `currentConditions.icon`)
 
 ## 📄 License
 
@@ -275,25 +197,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
+- [The Odin Project](https://www.theodinproject.com/) - For the excellent curriculum and project idea
+- [Visual Crossing](https://www.visualcrossing.com/) - For providing the weather API
+- [Weather Icons by Erik Flowers](https://erikflowers.github.io/weather-icons/) - For the beautiful weather icons
 - [Webpack Documentation](https://webpack.js.org/) - For comprehensive bundler guides
-- [Contributor Name](https://github.com/username) - For specific contribution
-- [Resource or Tutorial](https://example.com) - That helped inspire this project
-- Any other resources, libraries, or people you'd like to thank
-
-## 📞 Contact
-
-**Your Name** - [@your_twitter](https://twitter.com/your_twitter) - <email@example.com>
-
-**Project Link:** [https://github.com/username/repo-name](https://github.com/username/repo-name)
-
-**Live Demo:** [https://username.github.io/repo-name](https://username.github.io/repo-name)
 
 ---
 
 <div align="center">
 
-Made with ❤️ by [Your Name](https://github.com/username)
-
-If you found this project helpful, please consider giving it a ⭐️!
+**Part of [The Odin Project](https://www.theodinproject.com/) JavaScript Course**
 
 </div>
