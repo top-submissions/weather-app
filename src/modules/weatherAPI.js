@@ -101,3 +101,13 @@ export function processWeatherData(rawData) {
     forecast,
   };
 }
+
+/**
+ * Get weather data for a location (combines fetch and process)
+ * @param {string} location - City name or coordinates
+ * @returns {Promise<Object>} Processed weather data
+ */
+export async function getWeatherData(location) {
+  const rawData = await fetchWeatherData(location);
+  return processWeatherData(rawData);
+}
