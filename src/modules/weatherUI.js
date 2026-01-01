@@ -148,3 +148,91 @@ function updateToggleButtons() {
     }
   });
 }
+
+/**
+ * Update weather display with data
+ * @param {Object} weatherData - Processed weather data
+ */
+export function updateWeatherDisplay(weatherData) {
+  // Store data for unit conversion
+  currentWeatherData = weatherData;
+
+  const { location, currentWeather, forecast } = weatherData;
+
+  // Update location and date
+  document.getElementById('locationName').textContent = location.name;
+  document.getElementById('currentDate').textContent = formatDate(
+    currentWeather.datetime
+  );
+
+  // Update current temperature
+  document.getElementById('currentTemp').textContent = convertTemp(
+    currentWeather.temp
+  );
+  document.getElementById('feelsLike').textContent = convertTemp(
+    currentWeather.feelsLike
+  );
+
+  // Update temperature unit displays
+  const tempUnits = document.querySelectorAll('.temp-unit');
+  tempUnits.forEach(unit => {
+    unit.textContent = getTempUnit();
+  });
+
+  // Update weather icon
+  const iconClass = mapWeatherIcon(currentWeather.icon);
+  const currentIcon = document.getElementById('currentIcon');
+  currentIcon.className = `wi weather-icon ${iconClass}`;
+
+  // Update weather description
+  document.getElementById('weatherDescription').textContent =
+    currentWeather.conditions;
+
+  // Update weather details
+  document.getElementById('humidity').textContent = `${roundTemp(
+    currentWeather.humidity
+  )}%`;
+  document.getElementById('windSpeed').textContent = `${roundTemp(
+    currentWeather.windSpeed
+  )} mph`;
+  document.getElementById('pressure').textContent = `${roundTemp(
+    currentWeather.pressure
+  )} mb`;
+  document.getElementById('uvIndex').textContent = `${roundTemp(
+    currentWeather.uvIndex
+  )} (${getUVDescription(currentWeather.uvIndex)})`;
+
+  // Update forecast
+  updateForecast(forecast);
+
+  // Update theme
+  updateTheme(currentWeather.icon, currentWeather.conditions);
+
+  // Show weather display
+  const weatherDisplay = document.getElementById('weatherDisplay');
+  weatherDisplay.classList.add('active');
+
+  // Hide loading and error
+  hideLoading();
+  hideError();
+}
+
+/**
+ * Initialize UI event listeners
+ */
+export function initializeUI() {
+  // Temperature toggle buttons
+  const toggleButtons = document.querySelectorAll('.toggle-btn');
+  toggleButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const unit = btn.dataset.unit;
+      if (unit !== currentUnit) {
+        currentUnit = unit;
+        updateToggleButtons();
+        if (currentWeatherData) {
+          updateWeatherDisplay(currentWeatherData);
+        }
+      }
+    });
+  });
+}
