@@ -54,3 +54,98 @@ export function formatDate(dateString, formatString = 'EEEE, MMMM d, yyyy') {
 export function getDayAbbreviation(dateString) {
   return formatDate(dateString, 'EEE');
 }
+
+/**
+ * Map weather condition to Weather Icons class
+ * @param {string} icon - Visual Crossing icon code
+ * @returns {string} Weather Icons class name
+ */
+export function mapWeatherIcon(icon) {
+  const iconMap = {
+    'clear-day': 'wi-day-sunny',
+    'clear-night': 'wi-night-clear',
+    'partly-cloudy-day': 'wi-day-cloudy',
+    'partly-cloudy-night': 'wi-night-alt-cloudy',
+    cloudy: 'wi-cloudy',
+    fog: 'wi-fog',
+    wind: 'wi-strong-wind',
+    rain: 'wi-rain',
+    snow: 'wi-snow',
+    sleet: 'wi-sleet',
+    'snow-showers-day': 'wi-day-snow',
+    'snow-showers-night': 'wi-night-alt-snow',
+    'thunder-rain': 'wi-thunderstorm',
+    'thunder-showers-day': 'wi-day-thunderstorm',
+    'thunder-showers-night': 'wi-night-alt-thunderstorm',
+  };
+
+  return iconMap[icon] || 'wi-day-sunny';
+}
+
+/**
+ * Determine theme based on weather conditions
+ * @param {string} icon - Visual Crossing icon code
+ * @param {string} conditions - Weather conditions description
+ * @returns {string} Theme class name
+ */
+export function getWeatherTheme(icon, conditions) {
+  const conditionsLower = conditions.toLowerCase();
+
+  // Night theme
+  if (icon.includes('night')) {
+    return 'night';
+  }
+
+  // Rain theme
+  if (
+    icon.includes('rain') ||
+    icon.includes('thunder') ||
+    conditionsLower.includes('rain') ||
+    conditionsLower.includes('storm')
+  ) {
+    return 'rain';
+  }
+
+  // Snow theme
+  if (
+    icon.includes('snow') ||
+    icon.includes('sleet') ||
+    conditionsLower.includes('snow') ||
+    conditionsLower.includes('sleet')
+  ) {
+    return 'snow';
+  }
+
+  // Cloudy theme
+  if (icon.includes('cloudy') || conditionsLower.includes('cloud')) {
+    return 'cloudy';
+  }
+
+  // Clear/Sunny theme (default)
+  return 'clear';
+}
+
+/**
+ * Get UV Index description
+ * @param {number} uvIndex - UV index value
+ * @returns {string} UV description
+ */
+export function getUVDescription(uvIndex) {
+  if (uvIndex <= 2) return 'Low';
+  if (uvIndex <= 5) return 'Moderate';
+  if (uvIndex <= 7) return 'High';
+  if (uvIndex <= 10) return 'Very High';
+  return 'Extreme';
+}
+
+/**
+ * Capitalize first letter of each word
+ * @param {string} str - String to capitalize
+ * @returns {string} Capitalized string
+ */
+export function capitalizeWords(str) {
+  return str
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
+}
