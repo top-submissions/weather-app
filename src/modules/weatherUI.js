@@ -59,3 +59,31 @@ export function hideError() {
   const errorMessage = document.getElementById('errorMessage');
   errorMessage.classList.remove('active');
 }
+
+/**
+ * Convert temperature based on current unit
+ * @param {number} temp - Temperature in Fahrenheit
+ * @returns {number} Converted temperature
+ */
+function convertTemp(temp) {
+  if (currentUnit === 'celsius') {
+    return roundTemp(fahrenheitToCelsius(temp));
+  }
+  return roundTemp(temp);
+}
+
+/**
+ * Get temperature unit symbol
+ * @returns {string} Temperature unit symbol
+ */
+function getTempUnit() {
+  return currentUnit === 'celsius' ? '°C' : '°F';
+}
+
+/**
+ * Get current temperature unit
+ * @returns {string} Current unit ('fahrenheit' or 'celsius')
+ */
+export function getCurrentUnit() {
+  return currentUnit;
+}
